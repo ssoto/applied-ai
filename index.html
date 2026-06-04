@@ -3,14 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Applied AI — Taller</title>
-  <meta name="description" content="Taller de Applied AI: Prompt Engineering, Claude Cowork, Claude SDK">
+  <title>Applied AI — Open Future Ceuta</title>
+  <meta name="description" content="Taller de Applied AI: Prompt Engineering, Claude Cowork, Claude SDK — Open Future Ceuta, 11 junio 2026">
   <style>
+    :root {
+      --bg: #0d1117;
+      --fg: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-2: #a371f7;
+      --card: #161b22;
+      --border: #30363d;
+      --footer-text: #484f58;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #0d1117;
-      color: #e6edf3;
+      background: var(--bg);
+      color: var(--fg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       min-height: 100vh;
       display: flex;
@@ -28,7 +39,7 @@
     header h1 {
       font-size: clamp(40px, 6vw, 72px);
       font-weight: 700;
-      background: linear-gradient(90deg, #58a6ff, #a371f7);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -37,7 +48,7 @@
     }
 
     header p {
-      color: #8b949e;
+      color: var(--muted);
       font-size: 18px;
     }
 
@@ -50,8 +61,8 @@
     }
 
     .card {
-      background: #161b22;
-      border: 1px solid #30363d;
+      background: var(--card);
+      border: 1px solid var(--border);
       border-radius: 12px;
       padding: 32px 28px;
       text-decoration: none;
@@ -63,7 +74,7 @@
     }
 
     .card:hover {
-      border-color: #58a6ff;
+      border-color: var(--accent);
       transform: translateY(-3px);
       box-shadow: 0 8px 24px rgba(88, 166, 255, 0.12);
     }
@@ -73,44 +84,64 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #8b949e;
+      color: var(--muted);
     }
 
     .card h2 {
       font-size: 22px;
       font-weight: 600;
-      color: #e6edf3;
+      color: var(--fg);
       line-height: 1.3;
     }
 
     .card p {
       font-size: 15px;
-      color: #8b949e;
+      color: var(--muted);
       line-height: 1.5;
       flex: 1;
     }
 
     .card .duration {
       font-size: 13px;
-      color: #58a6ff;
+      color: var(--accent);
       font-weight: 500;
     }
 
     .card .arrow {
       align-self: flex-end;
       font-size: 20px;
-      color: #30363d;
+      color: var(--border);
       transition: color 0.2s, transform 0.2s;
     }
 
     .card:hover .arrow {
-      color: #58a6ff;
+      color: var(--accent);
       transform: translateX(4px);
+    }
+
+    .meta {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .meta span {
+      font-size: 14px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .meta span::before {
+      content: attr(data-icon);
     }
 
     footer {
       margin-top: 56px;
-      color: #484f58;
+      color: var(--footer-text);
       font-size: 14px;
       text-align: center;
     }
@@ -119,14 +150,20 @@
 <body>
   <header>
     <h1>Applied AI</h1>
-    <p>Selecciona un bloque del taller para abrir la presentación</p>
+    <p>Integra la inteligencia artificial de forma profesional en tu negocio</p>
+    <div class="meta">
+      <span data-icon="📅">11 de junio de 2026</span>
+      <span data-icon="📍">Open Future Ceuta</span>
+      <span data-icon="👨‍💻">Sergio Soto · LLM Engineer</span>
+      <span data-icon="⏱">~3h 40min · 100% práctico</span>
+    </div>
   </header>
 
   <main class="grid">
     <a class="card" href="bloque0.html">
       <span class="badge">Bloque 0</span>
       <h2>Bienvenida y Contexto</h2>
-      <p>Presentación del taller, agenda del día y por qué la IA aplicada es una habilidad clave ahora.</p>
+      <p>Presentación del instructor y agenda. Por qué la IA es el catalizador definitivo para startups hoy y qué vamos a construir juntos.</p>
       <span class="duration">15 min</span>
       <span class="arrow">→</span>
     </a>
@@ -134,7 +171,7 @@
     <a class="card" href="bloque1.html">
       <span class="badge">Bloque 1</span>
       <h2>Prompt Engineering</h2>
-      <p>Técnicas zero-shot, few-shot y chain-of-thought con ejercicio práctico incluido.</p>
+      <p>Anatomía de un buen prompt. Técnicas zero-shot, few-shot y chain-of-thought. Casos reales: marketing, análisis de feedback y documentos internos.</p>
       <span class="duration">60 min</span>
       <span class="arrow">→</span>
     </a>
@@ -142,20 +179,20 @@
     <a class="card" href="bloque2.html">
       <span class="badge">Bloque 2</span>
       <h2>Claude Cowork / Code</h2>
-      <p>Flujos de trabajo sin código y con código, automatizaciones reales y demo en vivo.</p>
+      <p>IA en el flujo de trabajo diario sin necesidad de programar. Automatización de tareas repetitivas, informes y gestión de archivos. Demo en vivo.</p>
       <span class="duration">60 min</span>
       <span class="arrow">→</span>
     </a>
 
     <a class="card" href="bloque3.html">
       <span class="badge">Bloque 3</span>
-      <h2>Claude SDK</h2>
-      <p>API, modelos disponibles, tool use y construcción de un primer agente funcional.</p>
+      <h2>Introducción a Claude SDK</h2>
+      <p>API de Anthropic desde cero: modelos, contexto y tool use. Construiremos un agente mínimo funcional que resuelva una tarea real.</p>
       <span class="duration">60 min + Q&amp;A</span>
       <span class="arrow">→</span>
     </a>
   </main>
 
-  <footer>Applied AI Workshop &mdash; Diverger</footer>
+  <footer>Applied AI Workshop &mdash; Sergio Soto · Open Future Ceuta · 11 junio 2026</footer>
 </body>
 </html>

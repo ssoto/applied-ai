@@ -1,0 +1,53 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What this repo is
+
+A **GitHub Pages site** that hosts Marp-compiled presentations for an Applied AI workshop. The source of truth is the `.md` files; the `.html` files are compiled artifacts that must be regenerated whenever a `.md` changes.
+
+## Compile a presentation
+
+```bash
+# Single file
+npx @marp-team/marp-cli@latest <file>.md -o <file>.html --html --theme theme.css
+
+# All presentations at once
+for f in bloque0 bloque1 bloque2 bloque3; do
+  npx @marp-team/marp-cli@latest $f.md -o $f.html --html --theme theme.css
+done
+```
+
+## Preview locally
+
+```bash
+npx @marp-team/marp-cli@latest --server .
+```
+
+Opens a live-reload server. Marp also has a VS Code extension that renders slides inline.
+
+## File layout
+
+| File | Role |
+|------|------|
+| `index.html` | Hand-written navigation page (not compiled from Markdown) |
+| `theme.css` | Shared Marp theme (`applied-ai`) — single source of truth for slide styles |
+| `bloque{0-3}.md` | Marp source for each workshop block |
+| `bloque{0-3}.html` | Compiled artifacts — do not edit directly |
+| `slides.md` | Original demo presentation (kept for reference) |
+| `.nojekyll` | Disables Jekyll so GitHub Pages serves the raw HTML |
+
+## Presentation structure
+
+All `.md` files use the shared `theme: applied-ai` theme defined in `theme.css`. The CSS variables (`--bg`, `--fg`, `--accent`, `--accent-2`, `--card`, `--border`) live only in that file. When adding a new presentation, set `theme: applied-ai` in its frontmatter — no `style:` block needed.
+
+Slides are separated by `---`. Use `<!-- _class: lead -->` on a slide for the centred title layout and `<!-- _paginate: false -->` to hide the page number.
+
+## Workshop blocks
+
+| File | Topic | Duration |
+|------|-------|----------|
+| `bloque0` | Bienvenida y Contexto | 15 min |
+| `bloque1` | Prompt Engineering (zero-shot, few-shot, CoT) | 60 min |
+| `bloque2` | Claude Cowork / Code (no-code and code flows) | 60 min |
+| `bloque3` | Claude SDK (API, tool use, first agent) + Q&A | 60 + 15 min |
