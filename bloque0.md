@@ -14,7 +14,7 @@ theme: applied-ai
 # Bloque 0
 ## Bienvenida y Contexto
 
-Taller **Applied AI** · 15 min
+Taller **Applied AI**
 
 ---
 
@@ -23,10 +23,26 @@ Taller **Applied AI** · 15 min
 | Bloque | Tema | Duración |
 |--------|------|----------|
 | **0** | Bienvenida y contexto | 15 min |
-| **1** | Prompt Engineering | 60 min |ara
-| **2** | Claude Cowork / Code | 60 min |
-| **3** | Claude SDK | 60 min |
-| — | Q&A y próximos pasos | 15 min |
+| **1** | Prompt Engineering | 45 min |ara
+| **2** | Claude Cowork / Code | 45 min |
+| **3** | Claude SDK | 45 min |
+
+Entre cada bloque haremos un descanso de 5 minutos.
+
+
+---
+
+<!-- _paginate: false -->
+
+## Sobre mí
+
+**Sergio Soto Núñez**
+AI Engineer @ [Diverger.ai](https://diverger.ai/)
+
+Ingeniero de IA con experiencia en LLMs, agentes y aplicaciones empresariales.
+Ayudo a equipos a integrar IA generativa en sus flujos de trabajo.
+
+🔗 [linkedin.com/in/sergiosotonunez](https://linkedin.com/in/sergiosotonunez) · ✉️ sergiosotonunez@gmail.com
 
 ---
 
@@ -55,3 +71,5 @@ Saldrás con **conocimiento práctico** y herramientas listas para usar.
 # ¡Empecemos! 🚀
 
 Cualquier pregunta, interrúmpeme cuando quieras
+
+[← Volver al índice](index.html)

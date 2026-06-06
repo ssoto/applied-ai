@@ -89,10 +89,18 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
       width: 100%;
-      max-width: 960px;
+      max-width: 1100px;
+    }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      .grid { grid-template-columns: 1fr; }
     }
 
     .card {
@@ -199,7 +207,7 @@
       <span class="pill">📅 11 de junio de 2026</span>
       <span class="pill">📍 Open Future Ceuta</span>
       <span class="pill">👨‍💻 Sergio Soto · LLM Engineer</span>
-      <span class="pill">⏱ ~3h 40min · 100% práctico</span>
+      <span class="pill">⏱ ~2h 45min · 100% práctico</span>
     </div>
   </header>
 
@@ -219,7 +227,7 @@
       <h2>Prompt Engineering</h2>
       <p>Anatomía de un buen prompt. Zero-shot, few-shot y chain-of-thought. Casos reales con marketing, feedback y docs internos.</p>
       <div class="card-footer">
-        <span class="duration">60 min</span>
+        <span class="duration">45 min</span>
         <span class="arrow">→</span>
       </div>
     </a>
@@ -229,7 +237,7 @@
       <h2>Claude Cowork / Code</h2>
       <p>IA en el flujo de trabajo diario sin programar. Automatización de tareas repetitivas, informes y gestión de archivos. Demo en vivo.</p>
       <div class="card-footer">
-        <span class="duration">60 min</span>
+        <span class="duration">45 min</span>
         <span class="arrow">→</span>
       </div>
     </a>
@@ -239,7 +247,7 @@
       <h2>Introducción a Claude SDK</h2>
       <p>API de Anthropic desde cero: modelos, contexto y tool use. Construiremos un agente mínimo funcional que resuelva una tarea real.</p>
       <div class="card-footer">
-        <span class="duration">60 min + Q&amp;A</span>
+        <span class="duration">45 min</span>
         <span class="arrow">→</span>
       </div>
     </a>
