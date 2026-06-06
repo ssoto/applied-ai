@@ -6,7 +6,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A **GitHub Pages site** that hosts Marp-compiled presentations for an Applied AI workshop. The source of truth is the `.md` files; the `.html` files are compiled artifacts that must be regenerated whenever a `.md` changes.
 
-## Compile a presentation
+## Build with Make
+
+```bash
+make          # compile all changed presentations (incremental)
+make bloque1.html   # compile a single block
+make preview  # live-reload server on http://localhost:8080
+make clean    # remove all compiled .html files
+```
+
+The Makefile tracks `theme.css` as a dependency — changing the theme recompiles every presentation automatically.
+
+## Compile manually (without Make)
 
 ```bash
 # Single file
@@ -21,6 +32,8 @@ done
 ## Preview locally
 
 ```bash
+make preview
+# or directly:
 npx @marp-team/marp-cli@latest --server .
 ```
 

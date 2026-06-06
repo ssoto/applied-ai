@@ -5,22 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Applied AI — Open Future Ceuta</title>
   <meta name="description" content="Taller de Applied AI: Prompt Engineering, Claude Cowork, Claude SDK — Open Future Ceuta, 11 junio 2026">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
   <style>
     :root {
-      --bg: #0d1117;
-      --fg: #e6edf3;
-      --muted: #8b949e;
-      --accent: #58a6ff;
-      --accent-2: #a371f7;
-      --card: #161b22;
-      --border: #30363d;
-      --footer-text: #484f58;
+      --bg: #0f0f14;
+      --fg: #f0eeff;
+      --muted: #7a7890;
+      --accent: #7c6bff;
+      --accent-2: #2dd4bf;
+      --card: #17161e;
+      --border: #2d2b3a;
+      --footer-text: #4a4858;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 40% at 50% -5%, rgba(124, 107, 255, 0.18) 0%, transparent 65%),
+        radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: auto, 24px 24px;
       color: var(--fg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       min-height: 100vh;
@@ -28,34 +33,64 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 48px 24px;
+      padding: 64px 24px;
     }
 
     header {
       text-align: center;
-      margin-bottom: 56px;
+      margin-bottom: 52px;
+      max-width: 680px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-2);
+      margin-bottom: 20px;
     }
 
     header h1 {
-      font-size: clamp(40px, 6vw, 72px);
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      font-size: clamp(52px, 8vw, 88px);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      line-height: 1.15;
-      margin-bottom: 12px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
     }
 
-    header p {
+    header .subtitle {
       color: var(--muted);
-      font-size: 18px;
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .meta {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 14px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      gap: 14px;
       width: 100%;
       max-width: 960px;
     }
@@ -64,52 +99,80 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 32px 28px;
+      padding: 28px 28px 22px;
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: attr(data-n);
+      position: absolute;
+      right: 18px;
+      bottom: -8px;
+      font-size: 100px;
+      font-weight: 900;
+      color: rgba(124, 107, 255, 0.06);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: -0.05em;
+      user-select: none;
     }
 
     .card:hover {
-      border-color: var(--accent);
+      border-color: rgba(124, 107, 255, 0.6);
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(88, 166, 255, 0.12);
+      box-shadow: 0 0 0 1px rgba(124, 107, 255, 0.2), 0 12px 32px rgba(124, 107, 255, 0.1);
     }
 
     .card .badge {
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 11px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
+      letter-spacing: 0.1em;
+      color: var(--accent-2);
     }
 
     .card h2 {
-      font-size: 22px;
+      font-size: 19px;
       font-weight: 600;
       color: var(--fg);
-      line-height: 1.3;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
     }
 
     .card p {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--muted);
-      line-height: 1.5;
+      line-height: 1.65;
       flex: 1;
     }
 
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+
     .card .duration {
-      font-size: 13px;
+      font-size: 11px;
+      font-weight: 600;
       color: var(--accent);
-      font-weight: 500;
+      background: rgba(124, 107, 255, 0.1);
+      border: 1px solid rgba(124, 107, 255, 0.2);
+      border-radius: 6px;
+      padding: 3px 10px;
+      letter-spacing: 0.02em;
     }
 
     .card .arrow {
-      align-self: flex-end;
-      font-size: 20px;
+      font-size: 17px;
       color: var(--border);
       transition: color 0.2s, transform 0.2s;
     }
@@ -119,77 +182,66 @@
       transform: translateX(4px);
     }
 
-    .meta {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-
-    .meta span {
-      font-size: 14px;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .meta span::before {
-      content: attr(data-icon);
-    }
-
     footer {
-      margin-top: 56px;
+      margin-top: 52px;
       color: var(--footer-text);
-      font-size: 14px;
+      font-size: 13px;
       text-align: center;
     }
   </style>
 </head>
 <body>
   <header>
+    <span class="eyebrow">Open Future Ceuta · 11 junio 2026</span>
     <h1>Applied AI</h1>
-    <p>Integra la inteligencia artificial de forma profesional en tu negocio</p>
+    <p class="subtitle">Integra la inteligencia artificial de forma profesional en tu flujo de trabajo</p>
     <div class="meta">
-      <span data-icon="📅">11 de junio de 2026</span>
-      <span data-icon="📍">Open Future Ceuta</span>
-      <span data-icon="👨‍💻">Sergio Soto · LLM Engineer</span>
-      <span data-icon="⏱">~3h 40min · 100% práctico</span>
+      <span class="pill">📅 11 de junio de 2026</span>
+      <span class="pill">📍 Open Future Ceuta</span>
+      <span class="pill">👨‍💻 Sergio Soto · LLM Engineer</span>
+      <span class="pill">⏱ ~3h 40min · 100% práctico</span>
     </div>
   </header>
 
   <main class="grid">
-    <a class="card" href="bloque0.html">
+    <a class="card" href="bloque0.html" data-n="0">
       <span class="badge">Bloque 0</span>
       <h2>Bienvenida y Contexto</h2>
-      <p>Presentación del instructor y agenda. Por qué la IA es el catalizador definitivo para startups hoy y qué vamos a construir juntos.</p>
-      <span class="duration">15 min</span>
-      <span class="arrow">→</span>
+      <p>Presentación del instructor y agenda. Por qué la IA es el catalizador definitivo para startups hoy.</p>
+      <div class="card-footer">
+        <span class="duration">15 min</span>
+        <span class="arrow">→</span>
+      </div>
     </a>
 
-    <a class="card" href="bloque1.html">
+    <a class="card" href="bloque1.html" data-n="1">
       <span class="badge">Bloque 1</span>
       <h2>Prompt Engineering</h2>
-      <p>Anatomía de un buen prompt. Técnicas zero-shot, few-shot y chain-of-thought. Casos reales: marketing, análisis de feedback y documentos internos.</p>
-      <span class="duration">60 min</span>
-      <span class="arrow">→</span>
+      <p>Anatomía de un buen prompt. Zero-shot, few-shot y chain-of-thought. Casos reales con marketing, feedback y docs internos.</p>
+      <div class="card-footer">
+        <span class="duration">60 min</span>
+        <span class="arrow">→</span>
+      </div>
     </a>
 
-    <a class="card" href="bloque2.html">
+    <a class="card" href="bloque2.html" data-n="2">
       <span class="badge">Bloque 2</span>
       <h2>Claude Cowork / Code</h2>
-      <p>IA en el flujo de trabajo diario sin necesidad de programar. Automatización de tareas repetitivas, informes y gestión de archivos. Demo en vivo.</p>
-      <span class="duration">60 min</span>
-      <span class="arrow">→</span>
+      <p>IA en el flujo de trabajo diario sin programar. Automatización de tareas repetitivas, informes y gestión de archivos. Demo en vivo.</p>
+      <div class="card-footer">
+        <span class="duration">60 min</span>
+        <span class="arrow">→</span>
+      </div>
     </a>
 
-    <a class="card" href="bloque3.html">
+    <a class="card" href="bloque3.html" data-n="3">
       <span class="badge">Bloque 3</span>
       <h2>Introducción a Claude SDK</h2>
       <p>API de Anthropic desde cero: modelos, contexto y tool use. Construiremos un agente mínimo funcional que resuelva una tarea real.</p>
-      <span class="duration">60 min + Q&amp;A</span>
-      <span class="arrow">→</span>
+      <div class="card-footer">
+        <span class="duration">60 min + Q&amp;A</span>
+        <span class="arrow">→</span>
+      </div>
     </a>
   </main>
 
