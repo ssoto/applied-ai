@@ -37,19 +37,20 @@ Entre cada bloque haremos un descanso de 5 minutos.
 ## Sobre mí
 
 **Sergio Soto Núñez**
-AI Engineer @ [Diverger.ai](https://diverger.ai/)
+AI Engineer @ <a href="https://diverger.ai/" target="_blank">Diverger.ai</a>
 
 Ingeniero de IA con experiencia en LLMs, agentes y aplicaciones empresariales.
 Ayudo a equipos a integrar IA generativa en sus flujos de trabajo.
 
-🔗 [linkedin.com/in/sergiosotonunez](https://linkedin.com/in/sergiosotonunez) · ✉️ sergiosotonunez@gmail.com
+🔗 <a href="https://linkedin.com/in/sergiosotonunez" target="_blank">linkedin.com/in/sergiosotonunez</a> · ✉️ sergiosotonunez@gmail.com
+
 
 ---
 
 ## ¿Por qué Applied AI ahora?
 
 - Los LLMs pasaron de **laboratorio** a **producción** en tiempo récord
-- Las herramientas son accesibles sin necesidad de infraestructura propia
+- Las herramientas son accesibles sin infraestructura propia — aunque las suscripciones tienen coste real: **claude.ai Pro** (~$20/mes), **Claude Code** (~$100/mes), **API** de pago por uso
 - El diferencial ya no es el modelo, sino **cómo lo usas**
 
 > La IA aplicada no es una tendencia futura — es una habilidad presente.
