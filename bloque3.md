@@ -8,6 +8,29 @@ description: "API, modelos, tool use y primer agente funcional"
 theme: applied-ai
 ---
 
+<script>
+(function () {
+  function inject() {
+    const osc = document.querySelector('.bespoke-marp-osc');
+    if (!osc || osc.querySelector('#home-btn')) return;
+    const btn = document.createElement('a');
+    btn.id = 'home-btn';
+    btn.href = 'index.html';
+    btn.title = 'Volver al inicio';
+    btn.textContent = '⌂';
+    btn.style.cssText = 'opacity:.8;cursor:pointer;font-size:2.4em;color:inherit;text-decoration:none;padding:0 4px;transition:opacity .2s';
+    btn.onmouseenter = () => btn.style.opacity = '1';
+    btn.onmouseleave = () => btn.style.opacity = '.8';
+    osc.appendChild(btn);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inject);
+  } else {
+    inject();
+  }
+})();
+</script>
+
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
