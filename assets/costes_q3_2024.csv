@@ -1,0 +1,13 @@
+categoria,producto,coste_unitario_eur,unidades,precio_venta_eur,coste_total_eur,ingresos_eur
+Licencias Software,Plan Starter,12,340,49,4080,16660
+Licencias Software,Plan Professional,28,210,99,5880,20790
+Licencias Software,Plan Enterprise,85,47,299,3995,14053
+Servicios Profesionales,Onboarding Básico,180,95,450,17100,42750
+Servicios Profesionales,Implementación Custom,420,31,1200,13020,37200
+Servicios Profesionales,Consultoría Estratégica,550,18,1800,9900,32400
+Soporte,Soporte Estándar,8,280,25,2240,7000
+Soporte,Soporte Prioritario,22,134,75,2948,10050
+Soporte,Soporte Dedicado,95,23,350,2185,8050
+Formación,Taller Presencial,310,14,900,4340,12600
+Formación,Curso Online Grabado,15,220,89,3300,19580
+Formación,Certificación,45,67,199,3015,13333
