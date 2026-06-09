@@ -194,6 +194,7 @@ Tienes un repositorio Git con meses de historial de commits y quieres entender c
 ## Solución — Manos a la obra
 
 <style scoped>
+section { font-size: 0.99995em; }
 .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin-top: 0.5em; }
 .col { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2em 1.4em; }
 .col h3 { margin-top: 0; font-size: 1em; }
