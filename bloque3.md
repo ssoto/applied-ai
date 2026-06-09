@@ -153,6 +153,18 @@ Consigue tu key gratuita en **console.anthropic.com** — incluye créditos para
 
 ---
 
+## Modelos disponibles
+
+| Modelo | ID | Velocidad | Cuándo usarlo |
+|--------|----|-----------|---------------|
+| **Haiku 4** | `claude-haiku-4-5-...` | ⚡⚡⚡ | Clasificación, resúmenes, volumen alto |
+| **Sonnet 4** | `claude-sonnet-4-6` | ⚡⚡ | La mayoría de casos — **empieza aquí** |
+| **Opus 4** | `claude-opus-4-8` | ⚡ | Razonamiento complejo, análisis profundo |
+
+> Regla práctica: **Sonnet** para tareas complejas, **Haiku** cuando necesites velocidad y tareas simples.
+
+---
+
 ## Tu primera llamada
 
 <style scoped>
@@ -171,7 +183,7 @@ Se llama a `client.messages.create()` con tres parámetros clave:
 
 La respuesta llega en `response.content[0].text` — exactamente el mismo texto que verías en Claude.ai, pero ahora **dentro de tu código**.
 
-<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/01_primera_llamada.py" style="color:inherit">sdk_examples/01_primera_llamada.py</a></p>
+<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/01_primera_llamada.py" target="_blank" style="color:inherit">sdk_examples/01_primera_llamada.py</a></p>
 
 ---
 
@@ -206,18 +218,6 @@ La respuesta llega en `response.content[0].text` — exactamente el mismo texto 
 </div>
 
 > Cada llamada es **sin estado** — la memoria eres tú: añade las respuestas anteriores al array `messages`.
-
----
-
-## Modelos disponibles
-
-| Modelo | ID | Velocidad | Cuándo usarlo |
-|--------|----|-----------|---------------|
-| **Haiku 4** | `claude-haiku-4-5-...` | ⚡⚡⚡ | Clasificación, resúmenes, volumen alto |
-| **Sonnet 4** | `claude-sonnet-4-6` | ⚡⚡ | La mayoría de casos — **empieza aquí** |
-| **Opus 4** | `claude-opus-4-8` | ⚡ | Razonamiento complejo, análisis profundo |
-
-> Regla práctica: **Sonnet** para tareas complejas, **Haiku** cuando necesites velocidad y tareas simples.
 
 ---
 
@@ -279,7 +279,7 @@ Una herramienta es un diccionario con tres campos:
   </div>
 </div>
 
-<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/02_tool_definition.py" style="color:inherit">sdk_examples/02_tool_definition.py</a></p>
+<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/02_tool_definition.py" target="_blank" style="color:inherit">sdk_examples/02_tool_definition.py</a></p>
 
 ---
 
@@ -361,36 +361,12 @@ El bucle que todo lo une
 <div class="row"><div class="num nb">1</div><div class="txt">Inicializa el historial con la pregunta del usuario como primer mensaje.</div></div>
 <div class="row"><div class="num nb">2</div><div class="txt">Llama a la API pasando el historial completo, el system prompt y la lista de tools disponibles.</div></div>
 <div class="row"><div class="num nb">3</div><div class="txt">Añade la respuesta de Claude al historial — sea texto final o una petición de tool.</div></div>
-<div class="row"><div class="num nok">4</div><div class="txt"><strong>Si <code>stop_reason == "end_turn"</code></strong>: Claude terminó de razonar. Sale del loop y mostramos la respuesta al usuario.</div></div>
+<div class="row"><div class="num nok">4</div><div class="txt"><strong>Si <code>stop_reason == "end_turn"</code></strong>: Claude considera que tiene suficiente información y ha generado una respuesta completa — no necesita llamar a ninguna tool más. Sale del loop y mostramos el texto al usuario. El otro valor posible es <code>"tool_use"</code>: Claude quiere datos antes de responder.</div></div>
 <div class="row"><div class="num nt">5</div><div class="txt"><strong>Si <code>stop_reason == "tool_use"</code></strong>: recorre los bloques de la respuesta, ejecuta cada tool con tus datos reales y recoge los resultados.</div></div>
 <div class="row"><div class="num nt">6</div><div class="txt">Devuelve los resultados como <code>tool_result</code> en el historial y vuelve al paso 2 — Claude decide si necesita más tools o puede responder.</div></div>
 </div>
 
-<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/03_fitcoach_agent.py" style="color:inherit">sdk_examples/03_fitcoach_agent.py</a></p>
-
----
-
-## La memoria del agente — el historial
-
-<style scoped>
-.history { display: flex; flex-direction: column; gap: 0.35em; margin-top: 0.5em; }
-.msg { display: flex; gap: 0.7em; align-items: flex-start; font-size: 0.78em; }
-.role { font-weight: bold; color: var(--accent); min-width: 5.5em; padding-top: 0.3em; }
-.content { background: var(--card); border-radius: 6px; padding: 0.3em 0.8em; flex: 1; line-height: 1.6; }
-.tool-call { color: var(--accent-2); }
-.tool-result { color: #888; }
-</style>
-
-<div class="history">
-<div class="msg"><div class="role">user</div><div class="content">"¿Cuál es el plan de María García?"</div></div>
-<div class="msg"><div class="role">assistant</div><div class="content tool-call">tool_use → buscar_usuario("María García")</div></div>
-<div class="msg"><div class="role">user</div><div class="content tool-result">tool_result → {id: "u123", nivel: "intermedio", objetivo: "resistencia"}</div></div>
-<div class="msg"><div class="role">assistant</div><div class="content tool-call">tool_use → obtener_plan("u123")</div></div>
-<div class="msg"><div class="role">user</div><div class="content tool-result">tool_result → {días: ["lun", "mié", "vie"], cardio: "30 min", fuerza: "45 min"}</div></div>
-<div class="msg"><div class="role">assistant</div><div class="content">"María sigue un plan de 3 días por semana enfocado en resistencia..."</div></div>
-</div>
-
-> El historial **es** la memoria del agente — cada turno Claude ve todo el contexto anterior.
+<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/03_fitcoach_agent.py" target="_blank" style="color:inherit">sdk_examples/03_fitcoach_agent.py</a></p>
 
 ---
 
@@ -420,7 +396,31 @@ Se definen **dos herramientas** que Claude puede invocar:
 
 > Las descripciones guían a Claude para encadenar las tools en el orden correcto sin instrucciones explícitas.
 
-<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/03_fitcoach_agent.py" style="color:inherit">sdk_examples/03_fitcoach_agent.py</a></p>
+<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/03_fitcoach_agent.py" target="_blank" style="color:inherit">sdk_examples/03_fitcoach_agent.py</a></p>
+
+---
+
+## La memoria del agente — el historial
+
+<style scoped>
+.history { display: flex; flex-direction: column; gap: 0.35em; margin-top: 0.5em; }
+.msg { display: flex; gap: 0.7em; align-items: flex-start; font-size: 0.78em; }
+.role { font-weight: bold; color: var(--accent); min-width: 5.5em; padding-top: 0.3em; }
+.content { background: var(--card); border-radius: 6px; padding: 0.3em 0.8em; flex: 1; line-height: 1.6; }
+.tool-call { color: var(--accent-2); }
+.tool-result { color: #888; }
+</style>
+
+<div class="history">
+<div class="msg"><div class="role">user</div><div class="content">"¿Cuál es el plan de María García?"</div></div>
+<div class="msg"><div class="role">assistant</div><div class="content tool-call">tool_use → buscar_usuario("María García")</div></div>
+<div class="msg"><div class="role">user</div><div class="content tool-result">tool_result → {id: "u123", nivel: "intermedio", objetivo: "resistencia"}</div></div>
+<div class="msg"><div class="role">assistant</div><div class="content tool-call">tool_use → obtener_plan("u123")</div></div>
+<div class="msg"><div class="role">user</div><div class="content tool-result">tool_result → {días: ["lun", "mié", "vie"], cardio: "30 min", fuerza: "45 min"}</div></div>
+<div class="msg"><div class="role">assistant</div><div class="content">"María sigue un plan de 3 días por semana enfocado en resistencia..."</div></div>
+</div>
+
+> El historial **es** la memoria del agente — cada turno Claude ve todo el contexto anterior.
 
 ---
 
@@ -445,7 +445,7 @@ Se definen **dos herramientas** que Claude puede invocar:
 
 Si Claude solicita un usuario que no existe, la función devuelve `{"error": "Usuario no encontrado"}` — Claude recibe ese mensaje y puede adaptar su respuesta al usuario final.
 
-<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/03_fitcoach_agent.py" style="color:inherit">sdk_examples/03_fitcoach_agent.py</a></p>
+<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/03_fitcoach_agent.py" target="_blank" style="color:inherit">sdk_examples/03_fitcoach_agent.py</a></p>
 
 ---
 
@@ -468,7 +468,7 @@ section { font-size: 0.92em; }
 
 > Claude coordinó dos llamadas, combinó los resultados y generó una respuesta contextualizada — todo automático.
 
-<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/03_fitcoach_agent.py" style="color:inherit">sdk_examples/03_fitcoach_agent.py</a></p>
+<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/03_fitcoach_agent.py" target="_blank" style="color:inherit">sdk_examples/03_fitcoach_agent.py</a></p>
 
 ---
 
@@ -593,51 +593,13 @@ Tres partes a personalizar — el loop del agente no cambia:
 </div>
 </div>
 
-<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/04_template.py" style="color:inherit">sdk_examples/04_template.py</a></p>
+<p style="font-size:0.65em;color:#7a7890;margin-top:auto">▶ <a href="https://github.com/ssoto/applied-ai/blob/main/sdk_examples/04_template.py" target="_blank" style="color:inherit">sdk_examples/04_template.py</a></p>
 
 ---
 
 <!-- _class: lead -->
 
-# De demo a producción
-
----
-
-## Costes reales (aproximados)
-
-| Modelo | Input | Output | 1.000 llamadas (~500 tokens c/u) |
-|--------|-------|--------|----------------------------------|
-| Haiku 4 | $0.08/Mtok | $0.25/Mtok | **~$0.17** |
-| Sonnet 4 | $3/Mtok | $15/Mtok | **~$9** |
-| Opus 4 | $15/Mtok | $75/Mtok | **~$45** |
-
-> Chatbot de atención al cliente, 100 conversaciones/día → **Sonnet ≈ $10–20/mes**.
-
-**Error handling básico:** envuelve la llamada en un `try/except` con hasta 3 reintentos. Si la API devuelve `RateLimitError`, espera con backoff exponencial: 1 s → 2 s → 4 s. Si los tres intentos fallan, deja que la excepción suba — no la silencies.
-
----
-
-## Dónde desplegar tu agente
-
-| Si tienes… | Desplega en… | Coste |
-|------------|-------------|-------|
-| Script Python | Cron local / GitHub Actions | Gratis |
-| Webhook o API | FastAPI + Railway / Render | Desde $0 |
-| Sin código | n8n o Make + nodo HTTP | Desde $0 |
-| Chatbot web | Vercel + Next.js | Desde $0 |
-
-**Recursos para seguir:**
-- **console.anthropic.com** — playground, métricas, gestión de keys
-- **docs.anthropic.com/tool-use** — referencia completa de Tool Use
-- **github.com/anthropics/anthropic-cookbook** — ejemplos de producción: RAG, multi-agent, streaming
-
----
-
-<!-- _class: lead -->
-
-# Q&A y Próximos Pasos 🎯
-
-¿Qué agente vas a construir esta semana?
+# Q&A
 
 ---
 
