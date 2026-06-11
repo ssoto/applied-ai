@@ -41,6 +41,49 @@ Patrones · Antipatrones · Ejercicio práctico
 
 ---
 
+## La escalera de herramientas
+
+<svg viewBox="0 0 1060 360" xmlns="http://www.w3.org/2000/svg" width="100%" style="display:block;margin-top:0.2em">
+  <defs>
+    <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="100%" stop-color="#7c6bff"/>
+    </linearGradient>
+  </defs>
+  <!-- Y-axis label -->
+  <text transform="rotate(-90,14,247)" x="14" y="247" text-anchor="middle" fill="#7a7890" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">Automatización ↑</text>
+  <!-- Staircase -->
+  <path d="M 25,345 H 285 V 280 H 535 V 215 H 785 V 150 H 1045" stroke="url(#sg)" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Card 1: Claude.ai (highlighted) -->
+  <rect x="45" y="240" width="210" height="105" rx="10" fill="#17161e" stroke="#2dd4bf" stroke-width="1.5"/>
+  <text x="150" y="267" text-anchor="middle" fill="#f0eeff" font-size="15" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">Claude.ai</text>
+  <text x="150" y="287" text-anchor="middle" fill="#7a7890" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">Chat en el navegador</text>
+  <rect x="85" y="297" width="130" height="22" rx="5" fill="#2dd4bf"/>
+  <text x="150" y="312" text-anchor="middle" fill="white" font-size="10.5" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">Estamos aquí</text>
+  <!-- Card 2: Cowork -->
+  <rect x="305" y="175" width="210" height="105" rx="10" fill="#17161e" stroke="#2d2b3a" stroke-width="1" opacity="0.5"/>
+  <text x="410" y="202" text-anchor="middle" fill="#f0eeff" font-size="15" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" opacity="0.5">Cowork</text>
+  <text x="410" y="222" text-anchor="middle" fill="#7a7890" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" opacity="0.5">Tus archivos + Claude</text>
+  <rect x="345" y="232" width="130" height="22" rx="5" fill="none" stroke="#2dd4bf" stroke-width="1" opacity="0.4"/>
+  <text x="410" y="247" text-anchor="middle" fill="#2dd4bf" font-size="10.5" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" opacity="0.4">Sin código</text>
+  <!-- Card 3: Claude Code -->
+  <rect x="555" y="110" width="210" height="105" rx="10" fill="#17161e" stroke="#2d2b3a" stroke-width="1" opacity="0.5"/>
+  <text x="660" y="137" text-anchor="middle" fill="#f0eeff" font-size="15" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" opacity="0.5">Claude Code</text>
+  <text x="660" y="157" text-anchor="middle" fill="#7a7890" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" opacity="0.5">Claude en tu terminal</text>
+  <rect x="595" y="167" width="130" height="22" rx="5" fill="none" stroke="#7c6bff" stroke-width="1" opacity="0.4"/>
+  <text x="660" y="182" text-anchor="middle" fill="#7c6bff" font-size="10.5" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" opacity="0.4">CLI</text>
+  <!-- Card 4: SDK/API -->
+  <rect x="805" y="45" width="210" height="105" rx="10" fill="#17161e" stroke="#2d2b3a" stroke-width="1" opacity="0.5"/>
+  <text x="910" y="72" text-anchor="middle" fill="#f0eeff" font-size="15" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" opacity="0.5">SDK / API</text>
+  <text x="910" y="92" text-anchor="middle" fill="#7a7890" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" opacity="0.5">Claude en tu producto</text>
+  <rect x="845" y="102" width="130" height="22" rx="5" fill="#7c6bff" opacity="0.4"/>
+  <text x="910" y="117" text-anchor="middle" fill="white" font-size="10.5" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" opacity="0.4">Código</text>
+  <!-- X-axis label -->
+  <text x="535" y="357" text-anchor="middle" fill="#7a7890" font-size="11" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">Conocimiento técnico requerido →</text>
+</svg>
+
+---
+
 ## ¿Qué es un prompt?
 
 Un **prompt** es la instrucción que le das al modelo para obtener una respuesta.
