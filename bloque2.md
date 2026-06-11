@@ -180,11 +180,14 @@ Tienes los datos de costes e ingresos del Q3 y un análisis de márgenes del tri
 </div>
 <div class="col">
 
-### 💻 Claude Code — Analizador de repositorio
+### 💻 Claude Code — Radar de tendencias tech
 
-Tienes un repositorio Git con meses de historial de commits y quieres entender cómo ha evolucionado el proyecto: quién contribuye más, qué ficheros cambian más y cuándo se trabaja.
+La API pública de Hacker News expone en tiempo real los posts más votados por la comunidad tech global. Sin registro. Sin API key.
 
-**Objetivo:** generar ese informe automáticamente desde el terminal.
+`https://hacker-news.firebaseio.com/v0`
+Docs: [github.com/hackernews/api](https://github.com/hackernews/api)
+
+**Objetivo:** construir un radar que descargue los 30 posts más votados ahora mismo, los clasifique por tema y genere una página HTML donde se exponga la información lista para compartir.
 
 </div>
 </div>
@@ -224,16 +227,25 @@ El análisis anterior actúa como plantilla implícita: Claude entiende el forma
 ### 💻 Claude Code
 
 ```
-"Crea un script Python que analice este
-repositorio git y genere un informe en
-Markdown con: commits por autor, los 5
-archivos más modificados y los 3 días
-de mayor actividad. Ejecútalo al final."
+"Usa la API pública de Hacker News
+(hacker-news.firebaseio.com/v0) para
+obtener los 30 top stories de ahora.
+Clasifícalos por tema (IA, cloud,
+seguridad, web...), detecta el tema
+dominante y genera una página HTML con:
+top 5 historias, ranking de temas
+y 3 lecturas recomendadas. Ábrela."
 ```
+
+**Cómo lo resuelve Claude Code:**
+1. Llama a `/topstories.json` → obtiene IDs
+2. Hace 30 llamadas a `/item/{id}.json` en paralelo
+3. Clasifica títulos por palabras clave temáticas
+4. Genera `digest.html`, la abre en el navegador — corrigiendo errores solo
 
 <div class="output">
 
-**Output:** `informe_repo.md` generado, ejecutado y corregido por Claude sin intervención
+**Output:** `digest.html` con datos reales de hoy, generada y abierta sin intervención
 
 </div>
 </div>
