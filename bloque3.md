@@ -160,8 +160,9 @@ Consigue tu key gratuita en **console.anthropic.com** — incluye créditos para
 | **Haiku 4** | `claude-haiku-4-5-...` | ⚡⚡⚡ | Clasificación, resúmenes, volumen alto |
 | **Sonnet 4** | `claude-sonnet-4-6` | ⚡⚡ | La mayoría de casos — **empieza aquí** |
 | **Opus 4** | `claude-opus-4-8` | ⚡ | Razonamiento complejo, análisis profundo |
+| **Fable 5** | `claude-fable-5` | ⚡ | Tareas agenticas largas, coding avanzado, computer use |
 
-> Regla práctica: **Sonnet** para tareas complejas, **Haiku** cuando necesites velocidad y tareas simples.
+> Regla práctica: **Haiku** para volumen y velocidad, **Sonnet** para la mayoría de casos, **Fable 5** para agentes autónomos de larga duración.
 
 ---
 
