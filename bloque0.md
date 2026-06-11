@@ -97,6 +97,7 @@ Saldrás con **conocimiento práctico** y herramientas listas para usar.
 ![bg right 80%](assets/anthropic-website.png)
 
 - **<a href="https://anthropic.com/" target="_blank">anthropic.com</a>** — instalar Claude Desktop y Claude Code
+- **Licencia Claude Pro**: suficiente para el taller y empezar a usar las herramientas. El coste son $17 (~20€).
 - **Ronda de presentaciones**: objetivos y espectativas
 
 ---
