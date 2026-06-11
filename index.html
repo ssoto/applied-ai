@@ -190,6 +190,62 @@
       transform: translateX(4px);
     }
 
+    #qr-block {
+      margin-top: 40px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    #qr-block summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      list-style: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 999px;
+      padding: 7px 18px;
+      transition: color 0.2s, border-color 0.2s;
+      user-select: none;
+    }
+
+    #qr-block summary::-webkit-details-marker { display: none; }
+
+    #qr-block summary:hover {
+      color: var(--fg);
+      border-color: rgba(124, 107, 255, 0.5);
+    }
+
+    #qr-block[open] summary { color: var(--accent-2); border-color: var(--accent-2); }
+
+    .qr-chevron {
+      font-size: 14px;
+      transition: transform 0.25s;
+      display: inline-block;
+    }
+
+    #qr-block[open] .qr-chevron { transform: rotate(180deg); }
+
+    .qr-content {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .qr-content img {
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 10px;
+    }
+
     footer {
       margin-top: 52px;
       color: var(--footer-text);
@@ -261,6 +317,16 @@
       </div>
     </a>
   </main>
+
+  <details id="qr-block">
+    <summary>
+      <span class="qr-label">¿Sin acceso al enlace? Escanea el QR</span>
+      <span class="qr-chevron">▾</span>
+    </summary>
+    <div class="qr-content">
+      <img src="assets/qr.png" alt="QR code" />
+    </div>
+  </details>
 
   <footer>Applied AI Workshop &mdash; Sergio Soto · Open Future Ceuta · 11 junio 2026</footer>
 

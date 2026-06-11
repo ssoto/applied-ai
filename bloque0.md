@@ -90,6 +90,15 @@ Saldrás con **conocimiento práctico** y herramientas listas para usar.
 
 ---
 
+## Configuración y presentaciones
+
+![bg right 80%](assets/anthropic-website.png)
+
+- **<a href="https://anthropic.com/" target="_blank">anthropic.com</a>** — instalar Claude Desktop y Claude Code
+- **Ronda de presentaciones**: objetivos y espectativas
+
+---
+
 <!-- _class: lead -->
 
 # ¡Empecemos! 🚀

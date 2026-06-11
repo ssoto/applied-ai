@@ -47,7 +47,7 @@ Un **prompt** es la instrucción que le das al modelo para obtener una respuesta
 
 La calidad del output depende directamente de la **claridad y estructura** del input.
 
-> "Garbage in, garbage out" — aplica igual a los LLMs.
+> "Garbage in, garbage out" — aplica igual a los LLMs: un prompt vago produce una respuesta vaga.
 
 ---
 
