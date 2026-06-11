@@ -609,4 +609,12 @@ Tres partes a personalizar — el loop del agente no cambia:
 
 Ha sido un placer aprender juntos
 
+<br>
+
+**¿Nos dejas tu feedback?**
+
+![w:180](assets/qr_feedback.png)
+
+<small style="font-size:0.55em;color:#7a7890">https://forms.gle/2eLq7PucCT66i7aF6</small>
+
 [← Volver al índice](index.html)
