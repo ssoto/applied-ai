@@ -65,6 +65,8 @@ AI Engineer @ <a href="https://diverger.ai/" target="_blank">Diverger.ai</a>
 Ingeniero de IA con experiencia en LLMs, agentes y aplicaciones empresariales.
 Ayudo a equipos a integrar IA generativa en sus flujos de trabajo.
 
+🏅 Anthropic CCAF — Claude Certified Architect: Foundations
+
 🔗 <a href="https://linkedin.com/in/sergiosotonunez" target="_blank">linkedin.com/in/sergiosotonunez</a> · ✉️ sergiosotonunez@gmail.com
 
 
