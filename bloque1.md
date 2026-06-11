@@ -337,6 +337,8 @@ o asunción que estés haciendo sobre NomadHub o el público objetivo.
 
 **Resultado:** el modelo te avisa antes de inventarse datos de tu negocio.
 
+> Esta instrucción de crítica previa es un **guardaraíl básico**: una regla dentro del prompt que limita o valida el comportamiento del modelo antes de que genere el output.
+
 ---
 
 ## Antipatrón 3 — La tarea gigante
